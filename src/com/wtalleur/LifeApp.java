@@ -25,7 +25,7 @@ public class LifeApp extends JFrame {
         setCenteredTitle(Constants.GAME_TITLE);
         setResizable(false);
         setCenteredFrame();
-		
+
 		/* The application consists of a main frame, lifePanel (contains lifeGrid), and lifeControls */
         lifePanel = new LifePanel();
         lifeControls = new LifeControls(lifePanel);

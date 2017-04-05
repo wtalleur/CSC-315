@@ -34,20 +34,12 @@ public class LifeGrid extends GridBase {
 
     @Override
     public void clear() {
-        for (int i = 0; i < getWidth(); i++) {
-            for (int j = 0; j < getHeight(); j++) {
-                //
-            }
-        }
+
     }
 
     @Override
     public void clearDeadCells() {
-        for (int i = 0; i < getWidth(); i++) {
-            for (int j = 0; j < getHeight(); j++) {
-                //
-            }
-        }
+
     }
 
     public boolean isWrappable() {

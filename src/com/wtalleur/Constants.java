@@ -12,7 +12,7 @@ public class Constants {
 
     public static final Dimension GAME_CONTAINER_SIZE = new Dimension(872, 505);
 
-    public static final boolean DEBUG_MODE = true;
+    public static final boolean DEBUG_MODE = false;
 
     public static final int GRID_POINT_SIZE = 10;
 

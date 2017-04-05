@@ -63,7 +63,7 @@ public class LifePanel extends JPanel implements MouseListener, MouseMotionListe
                 }
             }
         }
-		/* Draw Grid */
+        /* Draw Grid */
         g2d.setColor(Color.BLACK);
         for (int index = 0; index < lifeGrid.getWidth(); index++) {
             g2d.drawLine((index * Constants.GRID_POINT_SIZE) + Constants.GRID_POINT_SIZE, Constants.GRID_POINT_SIZE, (index * Constants.GRID_POINT_SIZE) + Constants.GRID_POINT_SIZE, Constants.GRID_POINT_SIZE + (Constants.GRID_POINT_SIZE * lifeGrid.getHeight()));
@@ -107,7 +107,7 @@ public class LifePanel extends JPanel implements MouseListener, MouseMotionListe
     }
 
     /**
-     * Adds a predefined shape (xlection of cells) to the grid.
+     * Adds a predefined shape (selection of cells) to the grid.
      *
      * @param shapeSet The shape to add
      */
@@ -169,7 +169,7 @@ public class LifePanel extends JPanel implements MouseListener, MouseMotionListe
 
     @Override
     public void mouseReleased(MouseEvent event) {
-		/* Mouse was released (single click) */
+        /* Mouse was released (single click) */
         addCell(event);
     }
 

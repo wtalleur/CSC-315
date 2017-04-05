@@ -20,7 +20,7 @@ public enum ShapeSet {
 
     private Shape shape;
 
-    private ShapeSet(Shape shape) {
+    ShapeSet(Shape shape) {
         this.shape = shape;
     }
 

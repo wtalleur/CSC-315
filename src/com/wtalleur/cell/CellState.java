@@ -5,7 +5,5 @@ package com.wtalleur.cell;
  * @date Apr 13, 2015
  */
 public enum CellState {
-
     ALIVE, DEAD
-
 }

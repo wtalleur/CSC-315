@@ -7,8 +7,6 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 /**
@@ -37,71 +35,43 @@ public class LifeControls extends JPanel {
 
         startButton = new JButton("Start Game");
         startButton.setPreferredSize(new Dimension(110, 30));
-        startButton.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                lifePanel.startLifeThread();
-            }
-        });
+        startButton.addActionListener(event -> lifePanel.startLifeThread());
 
         stopButton = new JButton("Stop Game");
         stopButton.setPreferredSize(new Dimension(110, 30));
-        stopButton.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                lifePanel.stopLifeThread();
-            }
-        });
+        stopButton.addActionListener(event -> lifePanel.stopLifeThread());
 
         clearButton = new JButton("Clear Game");
         clearButton.setPreferredSize(new Dimension(110, 30));
-        clearButton.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                lifePanel.resetCells();
-                lifePanel.repaint();
-            }
+        clearButton.addActionListener(event -> {
+            lifePanel.resetCells();
+            lifePanel.repaint();
         });
 
         loadButton = new JButton("Load Game");
         loadButton.setPreferredSize(new Dimension(110, 30));
-        loadButton.addActionListener(new ActionListener() {
+        loadButton.addActionListener(event -> {
+            loadFile = new JFileChooser();
+            loadFile.setCurrentDirectory(new File("./resources/gamesaves/"));
 
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                loadFile = new JFileChooser();
-                loadFile.setCurrentDirectory(new File("./resources/gamesaves/"));
-
-                int optionSelected = loadFile.showOpenDialog(lifePanel);
-                if (optionSelected == JFileChooser.APPROVE_OPTION) {
-                    lifePanel.getLifeGrid().load(loadFile.getSelectedFile().getName(), false);
-                    lifePanel.repaint();
-                }
+            int optionSelected = loadFile.showOpenDialog(lifePanel);
+            if (optionSelected == JFileChooser.APPROVE_OPTION) {
+                lifePanel.getLifeGrid().load(loadFile.getSelectedFile().getName(), false);
+                lifePanel.repaint();
             }
         });
 
         saveButton = new JButton("Save Game");
         saveButton.setPreferredSize(new Dimension(110, 30));
-        saveButton.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                lifePanel.getLifeGrid().save("game");
-                JOptionPane.showMessageDialog(lifePanel, "Your game was successfully saved, use the load function to view it again.");
-            }
+        saveButton.addActionListener(event -> {
+            lifePanel.getLifeGrid().save("game");
+            JOptionPane.showMessageDialog(lifePanel, "Your game was successfully saved, use the load function to view it again.");
         });
 
         stepButton = new JButton("Next Step");
         stepButton.setPreferredSize(new Dimension(110, 30));
-        stepButton.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                // TODO:
-            }
+        stepButton.addActionListener(event -> {
+            // TODO:
         });
 
         shapesLabel = new JLabel("Predefined Shapes");
@@ -109,27 +79,23 @@ public class LifeControls extends JPanel {
         shapes = new JComboBox<>();
         shapes.setModel(new DefaultComboBoxModel<>(ShapeSet.values()));
         shapes.setPreferredSize(new Dimension(110, 30));
-        shapes.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                switch (shapes.getSelectedIndex()) {
-                    case 0:
-                        lifePanel.addShape(ShapeSet.GLIDER);
-                        break;
-                    case 1:
-                        lifePanel.addShape(ShapeSet.EXPLODER);
-                        break;
-                    case 2:
-                        lifePanel.addShape(ShapeSet.BLINKER);
-                        break;
-                    case 3:
-                        lifePanel.addShape(ShapeSet.PULSAR);
-                        break;
-                    case 4:
-                        lifePanel.addShape(ShapeSet.SPACESHIP);
-                        break;
-                }
+        shapes.addActionListener(event -> {
+            switch (shapes.getSelectedIndex()) {
+                case 0:
+                    lifePanel.addShape(ShapeSet.GLIDER);
+                    break;
+                case 1:
+                    lifePanel.addShape(ShapeSet.EXPLODER);
+                    break;
+                case 2:
+                    lifePanel.addShape(ShapeSet.BLINKER);
+                    break;
+                case 3:
+                    lifePanel.addShape(ShapeSet.PULSAR);
+                    break;
+                case 4:
+                    lifePanel.addShape(ShapeSet.SPACESHIP);
+                    break;
             }
         });
 
@@ -138,21 +104,17 @@ public class LifeControls extends JPanel {
         generations = new JComboBox<>();
         generations.setModel(new DefaultComboBoxModel<>(Generations.values()));
         generations.setPreferredSize(new Dimension(110, 30));
-        generations.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                switch (generations.getSelectedIndex()) {
-                    case 0:
-                        lifePanel.setGenerationSpeed(Generations.SLOW.getSpeed());
-                        break;
-                    case 1:
-                        lifePanel.setGenerationSpeed(Generations.FAST.getSpeed());
-                        break;
-                    case 2:
-                        lifePanel.setGenerationSpeed(Generations.HYPER.getSpeed());
-                        break;
-                }
+        generations.addActionListener(event -> {
+            switch (generations.getSelectedIndex()) {
+                case 0:
+                    lifePanel.setGenerationSpeed(Generations.SLOW.getSpeed());
+                    break;
+                case 1:
+                    lifePanel.setGenerationSpeed(Generations.FAST.getSpeed());
+                    break;
+                case 2:
+                    lifePanel.setGenerationSpeed(Generations.HYPER.getSpeed());
+                    break;
             }
         });
 
