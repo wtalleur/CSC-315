@@ -1,4 +1,4 @@
-# Conway's-Game-of-Life
+# Conway's Game of Life
 
 ## Background
 > Conways game of life is a cellular automaton and zero-player game devised by the British mathematician John Horton Conway in 1970. 
@@ -18,6 +18,6 @@
 ## Screenshots
 ![alt text](https://i.gyazo.com/7e689d82e0e416be9e0a3488e1dd4bcf.png "")
 
-![alt text](https://i.gyazo.com/07fa1da03637e870b13e2c0f197d4020.mp4 "")
+![](https://i.gyazo.com/07fa1da03637e870b13e2c0f197d4020.mp4)
 
 ![alt text](https://i.gyazo.com/1a0987391415fd204534ff7f10ad08b3.png "")
